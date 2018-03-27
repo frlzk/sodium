@@ -1,0 +1,10 @@
+CREATE TABLE sodium_uploadfiles(
+	id VARCHAR(35) NOT NULL,
+	name VARCHAR(100) NOT NULL,
+	mimeType VARCHAR(30) NOT NULL,
+	uploadtime TIMESTAMP NOT NULL,
+	ownertable VARCHAR(40),
+	ownerfield VARCHAR(40),
+	ownerpk VARCHAR(50),
+	data BLOB
+)

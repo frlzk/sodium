@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+<entry key="perm.not_found_action">沒有找到action</entry>
+<entry key="perm.not_login">沒有登录</entry>
+<entry key="perm.not_have_permission">沒有action权限</entry>
+</properties> 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+<entry key="perm.not_found_action">Not found action</entry>
+<entry key="perm.not_login">Not login</entry>
+<entry key="perm.not_have_permission">Not have permission for action</entry>
+</properties> 
