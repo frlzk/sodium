@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="admin.dept" label="系统管理/管理机构">
+	<action name="Items" class="app.admin.dept.DeptItems" method="submitForm" label="查看"  source="sys.Id" result="admin.dept.DeptTreeItem"/>
+	
+	<action name="Load" class="app.admin.dept.LoadDept" method="submitForm" label="查看2"  source="sys.Id" result="admin.dept.DeptForm"/>
+		
+	<action name="Save" class="app.admin.dept.SaveDept" method="submitForm" label="保存"  source="admin.dept.DeptForm" result="admin.dept.DeptForm">
+		<anchor type="custom" label="新建下级" page="admin.dept.List" attach="admin.dept.DeptForm"/>
+		<anchor type="save" label="保存" page="admin.dept.List"/>
+	</action>
+	
+	<action name="Delete" class="app.admin.dept.DelDept" method="submitForm" label="删除" source="!id">
+		<anchor type="delete" label="删除" page="admin.dept.List" source="admin.dept.DeptForm,id" style="keyfield:admin.dept.DeptForm!name"/>
+	</action>
+</actions>

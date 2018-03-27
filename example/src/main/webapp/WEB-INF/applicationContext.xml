@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    	">
+    <context:component-scan base-package="app"/>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/app.conf"/>
+	</bean>
+	<bean id="setting" class="sodium.engine.Setting">
+		<property name="debug" value="${setting.debug}"/>
+	</bean>
+	<bean id="sessionAttributes" class="app.impl.SessionValues">
+	</bean>
+	
+	<bean id="fileManager" class="sodium.file.impl.DiskFileManager">
+	</bean>
+	
+	<bean id="accessController" class="app.impl.AccessControllerImpl">
+	</bean>
+	
+	<!-- <bean id="pageRenderer" class="sodium.page.Extjs3Renderer"></bean> -->
+	<!--<bean id="pageRenderer" class="sodium.page.Extjs4Renderer"></bean> -->
+	<!-- <bean id="pageRenderer" class="sodium.page.DoJo1_8Renderer">
+		<property name="defaultTheme" value="claro"></property>
+	</bean> 
+	 -->
+	<bean id="pageContainerRenderer" class="sodium.page.DoJo1_10Renderer">
+		<property name="defaultTheme" value="claro"></property>
+	</bean>
+	
+	<bean id="configuration" class="sodium.engine.Configuration" init-method="init">
+		<property name="pageContainerRenderer"><ref bean="pageContainerRenderer"/></property>
+		<property name="packagesToScan" value="app"></property>
+	</bean>
+	
+	<bean id="engine" class="sodium.engine.Engine" init-method="init">
+		<property name="setting"><ref bean="setting"/></property>
+		<property name="accessController"><ref bean="accessController"/></property>
+		<property name="sessionAttributes"><ref bean="sessionAttributes"/></property>
+		<property name="configuration"><ref bean="configuration"/></property>
+	</bean>
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="5000" />
+	</bean>
+	
+	<bean id="jobScheduler" class="sodium.job.impl.JobSchedulerImpl" init-method="init">
+		<property name="configuration"><ref bean="configuration"/></property>
+		<property name="taskExecutor" ref="taskExecutor" />
+	</bean>
+	
+	<bean id="requestContextCreator" class="app.impl.RequestContextCreatorImpl">
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- 
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>  
+		<property name="url" value="jdbc:sqlserver://192.168.0.73:1433;databaseName=np"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="sa"/>
+	
+	     -->
+	    <property name="driverClassName" value="${ds.driver}"/>  
+		<property name="url" value="${ds.url}"/>
+		<property name="username" value="${ds.username}"/>
+		<property name="password" value="${ds.password}"/>
+		
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configurationClass" value="app.hibernate.HibernateConfiguration"/>
+		<property name="mappingLocations">
+			<list>
+				<value>WEB-INF/hbm/**/*.hbm.xml</value>
+			</list>
+		</property>    
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.connection.release_mode">auto</prop>
+				<prop key="hibernate.autoReconnect">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="initializers" class="app.sys.Initializers" init-method="init">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="engine" ref="engine" />
+	</bean>
+	
+</beans>

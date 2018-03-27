@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="${contextPath}/lib/extjs/3/resources/css/ext-all.css"/>
+<link rel="stylesheet" href="${contextPath}/lib/extjs/3/resources/css/profiles.css"/>
+<link rel="stylesheet" href="${contextPath}/lib/extjs/3/resources/css/ux/RowEditor.css"/>

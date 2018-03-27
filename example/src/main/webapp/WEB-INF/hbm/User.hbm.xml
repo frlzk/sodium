@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="SysUser" table="SYS_SYSTEMUSERS">
+		<id name="id" type="java.lang.String">
+            	<column name="su_userid"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="code" column="su_logonname" type="string" />
+		<property name="name" column="su_username" type="string" />
+		<property name="password" column="su_password" type="string" />
+		<property name="gender" column="su_gender" type="string" />
+		<property name="status" column="su_status" type="string" />
+		<property name="createuser" column="su_createuser" type="string" />
+		<property name="createdate" column="su_createdate" type="date" />
+		<property name="lastuser" column="su_lastuser" type="string" />
+		<property name="lastdate" column="su_lastdate" type="date" />
+	</class>
+	<class entity-name="SysUserRole" table="SYS_SYSTEMUSERROLE">
+		<id name="id" type="java.lang.String">
+            	<column name="ur_id"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="user" column="su_userid" type="string" />
+		<property name="role" column="sr_role" type="string" />
+	</class>
+	<class entity-name="SysUserDept" table="SYS_SYSTEMUSERDEPT">
+		<id name="id" type="java.lang.String">
+            	<column name="ud_id"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="user" column="su_userid" type="string" />
+		<property name="dept" column="mu_id" type="string" />
+	</class>
+	<class entity-name="SysUserGrid" table="SYS_SYSTEMUSERGRID">
+		<id name="id" type="java.lang.String">
+            	<column name="ug_id"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="user" column="su_userid" type="string" />
+		<property name="grid" column="gr_id" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<form name="user.Login">
+		<caption>
+			<text>用户登录</text>
+		</caption>
+		<field name="code" type="user.code" required="1">
+			<default value="'admin'"/>
+		</field>
+		<field name="password" type="user.pwd" required="1">
+			<default value="'123456'"/>
+		</field>
+		<field name="dept" type="admin.user.dept">
+			<reference action="user.Depts" keyfield="id">
+				<argument name="id" field="code"/>
+			</reference>
+		</field>
+	</form> 
+	<form name="user.Depts">
+		<caption><text>管理单元</text></caption>
+		<field name="id" type="admin.dept.id" textfield="name"></field>
+		<field name="name" type="admin.dept.name" ></field>
+	</form>
+	<form name="user.Items">
+		<caption><text>管理单元</text></caption>
+		
+		<field name="id" type="admin.dept.id" textfield="name"></field>
+		<field name="name" type="admin.dept.name" ></field>
+	</form>
+	<form name="user.Items">
+		<caption><text>用户列表</text></caption>
+		<field name="id" type="user.id" textfield="name"></field>
+		<field name="name" type="user.name"></field>
+	</form>
+	
+	<form-layout form="user.Login">
+		<panel form="user.Login">
+			<grid cols="1">
+				<field name="code"></field>
+				<field name="password"><widget type="password" /></field>
+			</grid>
+		</panel>
+	</form-layout>
+</forms>

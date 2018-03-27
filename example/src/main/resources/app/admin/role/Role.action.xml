@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="admin.role" label="系统管理/系统角色">
+	
+	<action name="Dictionary" textmethod="getDisplayText" method="submitForm" class="app.admin.role.RoleDictionary" result="admin.role.RoleItem"/>
+	
+	<action name="List"  class="app.admin.role.RoleList" method="submitForm" label="列表"  source="admin.role.ListParam" result="admin.role.List">
+		<anchor type="query" label="查询" page="admin.role.List" />
+		<anchor type="print" label="打印" page="admin.role.List" />
+	</action>
+	
+	<action name="Read"  class="app.admin.role.LoadRole" method="submitForm" label="查看"  source="sys.Id" result="sys.Id"/>
+	
+	<action name="Save"  class="app.admin.role.SaveRole" method="submitForm" label="编辑"  source="sys.Id" result="sys.Id">
+		<anchor type="custom" label="全选" mark="selAllAction" order="1" page="admin.role.Create" />
+		<anchor type="custom" label="全消" mark="deSelAllAction" order="2" page="admin.role.Create" />
+		<anchor type="save" label="保存" order="3" page="admin.role.Create"/>
+		<anchor type="custom" label="全选" mark="selAllAction" order="1" page="admin.role.Read" />
+		<anchor type="custom" label="全消" mark="deSelAllAction" order="2" page="admin.role.Read" />
+		<anchor type="save" label="保存" order="3" page="admin.role.Read" />
+	</action>
+	
+	<action name="Delete" class="app.admin.role.DelRole" method="submitForm" label="删除"  source="sys.Id">
+		<anchor type="delete" label="删除" page="admin.role.List" source="admin.role.List,id"/>
+	</action>
+	
+</actions>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="sysDeptLayer" table="ehr_manageunit_layer">
+		<id name="id" type="java.lang.String">
+           	<column name="m_id"/>
+           	<generator class="assigned" />
+       	</id>
+		<property name="bigId" column="m_big_id" type="string" />
+		<property name="bigCode" column="m_big_code" type="string" />
+		<property name="bigName" column="m_big_name" type="string" />
+		<property name="bigFullName" column="m_big_fullname" type="string" />
+		<property name="bigLevel" column="m_big_level" type="int" />
+		<property name="smallId" column="m_small_id" type="string" />
+		<property name="smallCode" column="m_small_code" type="string" />
+		<property name="smallName" column="m_small_name" type="string" />
+		<property name="smallFullName" column="m_small_fullname" type="string" />
+		<property name="smallLevel" column="m_small_level" type="int" />
+	</class>
+</hibernate-mapping>

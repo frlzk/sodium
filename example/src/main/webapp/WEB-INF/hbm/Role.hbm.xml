@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="adminRole" table="SYS_SYSTEMROLE">
+		<id name="id" type="java.lang.String">
+            	<column name="sr_id"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="name" column="sr_name" type="string" />
+		<property name="createuser" column="sr_createuser" type="string" />
+		<property name="createdate" column="sr_createdate" type="date" />
+		<property name="lastuser" column="sr_lastuser" type="string" />
+		<property name="lastdate" column="sr_lastdate" type="date" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="adminRoleAction" table="sys_systemroleaction">
+		<id name="id" type="java.lang.String">
+            	<column name="ra_id"/>
+            	<generator class="assigned" />
+        	</id>
+        <property name="role" column="ra_role" type="string" />
+		<property name="action" column="ra_action" type="string" />
+		<property name="isbottom" column="ra_isbottom" type="string" />
+	</class>
+</hibernate-mapping>

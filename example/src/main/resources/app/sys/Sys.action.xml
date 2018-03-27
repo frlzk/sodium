@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="sys">
+	<group-info label="系统管理" order="900"/>
+	
+	<action name="Language"  class="app.sys.Language"  method="submitForm" result="sys.Language"/>
+	
+	<action name="Dictionary" role="login" textmethod="getDisplayText" class="app.sys.CommonDictionary" method="submitForm" desc="sdadfads"  source="sys.DictionaryReq" result="sys.DictionaryRes"/>
+	
+	<jasperreport name="sys.JasperReportError" file="JasperReportError.jrxml"/>
+</actions>

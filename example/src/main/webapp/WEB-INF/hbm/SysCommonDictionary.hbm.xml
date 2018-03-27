@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="SysCommonDictionary" table="sys_common_dict_group">
+		<id name="code" type="java.lang.String">
+            	<column name="dic_group_code"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="name" column="dic_group_name" type="string" />
+		<property name="edit" column="dic_group_edit" type="string" />
+	</class>
+	<class entity-name="SysCommonDictionaryItem" table="sys_common_dict_item">
+		<id name="did" type="java.lang.String">
+            	<column name="dic_id"/>
+            	<generator class="assigned" />
+        	</id>
+		<property name="group" column="dic_group_code" type="string" />
+		<property name="key" column="dic_key" type="string" />
+		<property name="text" column="dic_text" type="string" />
+		<property name="fullText" column="dic_full_text" type="string" />
+		<property name="stop" column="dic_is_stop" type="string" />
+		<property name="spell" column="dic_spell" type="string" />
+		<property name="order" column="dic_order" type="integer" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	 <form name="admin.user.UserForm">
+		<caption>
+			<text>用户</text>
+		</caption>
+		<field name="id" type="user.id" key="2">
+			
+		</field>
+		<field name="code" type="user.code" required="1">
+			
+		</field>
+		<field name="password" type="user.pwd"  required="1">
+			
+		</field>
+		<field name="name" type="user.name"  required="1">
+			
+		</field>
+		<field name="status" type="user.status" required="1">
+			
+		</field>
+		<field name="gender" type="user.gender" >
+			
+		</field>
+		<field name="createuser" type="base.createuser" required="1" readonly="1"></field>
+		<field name="createdate" type="base.createdate" required="1" readonly="1"></field>
+		<field name="lastuser" type="base.modifyuser" required="1" readonly="1"></field>
+		<field name="lastdate" type="base.modifydate" required="1" readonly="1"></field>
+		<subform name="depts" minoccurs="0" form="admin.user.UserDeptForm"></subform>
+		<subform name="roles" minoccurs="0" form="admin.user.UserRoleForm">
+			<summary>
+				loopsf(roles,
+					set("sum",""),
+					set("sum",concat(get("sum"),text(role)," ")),
+					get("sum")
+				)
+			</summary>
+		</subform>
+	</form>
+	<form name="admin.user.UserRoleForm">
+		<caption>
+			<text>角色</text>
+		</caption>
+		<field name="id" type="base.uuid" >
+			
+		</field>
+		<field name="role" type="admin.user.role" >
+			
+		</field>
+		<uniques>
+			<unique>role</unique>
+		</uniques>
+	</form>
+	<form name="admin.user.UserDeptForm">
+		<caption>
+			<text>机构</text>
+		</caption>
+		<field name="id" type="base.uuid" >
+			
+		</field>
+		<field name="dept" type="base.dept" >
+			<reference action="dept.Dictionary" keyfield="id">
+				<property name="shorttext" value="name"/>
+			</reference>
+		</field>
+	</form>
+	
+	<form name="admin.user.UserListParam">
+		<caption><text>用户列表参数</text></caption>
+		<import-field form="admin.user.UserList">
+			<include-fields>code:-m,name:-m</include-fields>
+		</import-field>
+	</form>
+	<form-layout type="grid" form="admin.user.UserListParam" cols="2" fields="code,name"/>
+	
+	<form name="admin.user.UserList">
+		<caption><text>用户列表</text></caption>
+		<import-field form="admin.user.UserForm">
+			<include-fields>id,code,name,gender,status,createuser,createdate,lastuser,lastdate</include-fields>
+		</import-field>
+		<field name="bigId" type="admin.user.dept" >
+			
+		</field>
+	</form>
+	<form-layout type="table" form="admin.user.UserList" fields="code,name,gender,status,createuser,createdate"/>
+	
+	<form-layout id="admin.user.UserForm" form="admin.user.UserForm">
+		<panel form="admin.user.UserForm">
+			<grid cols="2">
+				<field name="code" />
+				<field name="password" ><widget type="password"/></field>
+				<field name="name"/>
+				<field name="status"><widget type="select"/></field>
+				<field name="gender"><widget type="select"/></field>
+				<subform colspan="1" rowspan="1" name="roles"><widget type="popup"/></subform>
+				<subform colspan="2" rowspan="4" name="depts"><widget type="embed"/></subform>
+				<field name="createuser" />
+				<field name="createdate" />
+				<field name="lastuser"/>
+				<field name="lastdate"/>
+				 
+				
+			</grid>
+		</panel>
+		<panel form="admin.user.UserRoleForm">
+			<table>
+				<field name="role" ><widget type="select"/></field>
+			</table>
+		</panel>
+		<panel form="admin.user.UserDeptForm">
+			<table>
+				<field name="dept"><widget type="tree"/></field>
+			</table>
+		</panel>
+	</form-layout>
+</forms>

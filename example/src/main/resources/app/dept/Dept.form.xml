@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<form name="dept.DictionaryItem">
+		<caption><text>机构字典项目</text></caption>
+		<import-field form="admin.dept.DeptTreeItem">
+			<include-fields>id,code,name,fullname,kind</include-fields>
+		</import-field>
+	</form>
+</forms>

@@ -1,0 +1,9 @@
+header=Content-Type=text/javascript; charset=UTF-8
+file=../../..//lib/extjs/4/js/ext-all-debug.js
+#file=../../..//lib/extjs/4/js/TableFormLayout.js
+#file=../../..//lib/extjs/4/js/RowEditor.js
+#file=../../..//lib/extjs/4/js/ColumnHeaderGroup.js
+file=../../..//lib/extjs/4/js/require.js
+inline=window.PAGE_RENDERER="extjs4";
+class=sodium.page.Extjs4:${locale}
+include=custom-viewport.br11,default-viewport.br11

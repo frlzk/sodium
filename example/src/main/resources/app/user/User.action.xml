@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="user">
+	<order label="用户:100"/>
+	
+	<!-- 
+	<action name="login" role="anyone" class="app.user.Login" method="submitForm" source="user.Login" result="user.Login">
+		<anchor type="save" label="login" page="user.Login" />
+		<anchor type="save" label="login" page="user.LoginDialog" />
+	</action>
+	 -->
+	<action name="Logout"  role="anyone" class="app.user.Logout" method="submitForm">
+	</action>
+	
+	<action name="Home"  role="login" class="app.user.Home" method="submitForm">
+	</action>
+	
+	<action name="Depts" role="anyone" class="app.user.Depts" method="submitForm" source="sys.Id" result="user.Depts">
+	</action>
+	
+	<action name="Dictionary" role="login" textmethod="getDisplayText" class="app.admin.user.UserDictionary" method="submitForm" result="user.Items">
+	
+	</action>
+	
+	<action name="DeptDoctors" role="login" class="app.admin.user.DeptDoctorsDict" method="submitForm" source="sys.Id" result="user.Items">
+		
+	</action>
+	
+</actions>

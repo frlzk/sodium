@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="${contextPath}/lib/extjs/4/resources/css/ext-all.css"/>
+<link rel="stylesheet" href="${contextPath}/lib/extjs/4/profiles/profiles.css"/>

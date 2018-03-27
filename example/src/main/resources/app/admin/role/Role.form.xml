@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<form name="admin.role.Form">
+		<caption><text>系统角色</text></caption>
+		<field name="id" type="admin.role.id" key="2"></field>
+		<field name="name" type="admin.role.name" ></field>
+		<field name="createuser" type="base.createuser" ><widget type="select"/></field>
+		<field name="createdate" type="base.createdate" ></field>
+		<field name="lastuser" type="base.modifyuser" ><widget type="select"/></field>
+		<field name="lastdate" type="base.modifydate" ></field>
+	</form>
+	<form name="admin.role.RoleItem">
+		<caption><text>管理单元</text></caption>
+		<field name="id" type="admin.role.id" textfield="name"></field>
+		<field name="name" type="admin.role.name" ></field>
+	</form>
+	<form name="admin.role.List">
+		<caption><text>系统角色列表</text></caption>
+		<import-field form="admin.role.Form">
+			<include-fields>id,name,createuser,createdate,lastuser,lastdate</include-fields>
+		</import-field>
+	</form>
+	<form name="admin.role.ListParam">
+		<caption><text>系统角色列表</text></caption>
+		<import-field form="admin.role.List">
+			<include-fields>name</include-fields>
+		</import-field>
+	</form>
+	
+	<form-layout type="grid" form="admin.role.Form" cols="1" fields="name" />
+	<form-layout type="grid" form="admin.role.ListParam" cols="1" fields="name" />
+	<form-layout type="table" form="admin.role.List" fields="name,createuser,createdate,lastuser,lastdate"/>
+</forms>

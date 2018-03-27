@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<form name="admin.dept.DeptForm">
+		<caption><text>管理单元</text></caption>
+		<field name="id" type="admin.dept.id" key="2" ></field>
+		<field name="code" type="admin.dept.code" readonly="1"></field>
+		<field name="name" type="admin.dept.name" required="1"></field>
+		<field name="kind" type="admin.dept.kind" required="1"></field>
+		<field name="note" type="admin.dept.note" ></field>
+		<field name="orderno" type="admin.dept.order" ></field>
+		<field name="py" type="admin.dept.py" ></field>
+		<field name="level" type="admin.dept.level" ></field>
+		<field name="parent" type="admin.dept.id" ></field>
+	</form>
+	<form name="admin.dept.DeptTreeItem">
+		<caption><text>管理单元</text></caption>
+		<field name="id" type="admin.dept.id" textfield="fullname"></field>
+		<field name="code" type="admin.dept.code" ></field>
+		<field name="name" type="admin.dept.name" ></field>
+		<field name="fullname" type="admin.dept.fullname"></field>
+		<field name="kind" type="admin.dept.kind" ></field>
+	</form>
+	
+	<form-layout id="admin.dept.DeptForm" form="admin.dept.DeptForm">
+		<panel form="admin.dept.DeptForm">
+			<grid cols="1">
+				<field name="name" />
+				<field name="kind"><widget type="select"/></field>
+				<field name="note"/>
+				<field name="orderno"/>
+			</grid>
+		</panel>
+	</form-layout>
+</forms>

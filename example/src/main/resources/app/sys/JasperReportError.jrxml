@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JasperReportError2" pageWidth="595" pageHeight="8420" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="printError" class="java.lang.String"/>
+	<background>
+		<band height="800" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="30" width="555" height="70"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{printError}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="138" width="555" height="1"/>
+			</line>
+		</band>
+	</background>
+	<detail>
+		<band height="50"/>
+	</detail>
+</jasperReport>

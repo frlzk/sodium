@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="admin.dict" label="系统管理/字典维护">
+	
+	<action name="Groups" class="app.admin.dict.DictGroups" method="submitForm" result="admin.dict.Group">
+		<anchor type="query" page="admin.dict.List" trigger="pageopen"/>
+	</action>
+	
+	<action name="Load" class="app.admin.dict.LoadItem" method="submitForm"  source="sys.Id" result="admin.dict.Item">
+		<anchor type="query" source="admin.dict.Group,'code>id'" result="admin.dict.Item" trigger="recordselect" page="admin.dict.List"/>
+	</action>
+	
+	<action name="Save" class="app.admin.dict.SaveItem" method="submitForm" label="保存" partners="!Groups,!Load"  source="admin.dict.Item">
+		<anchor type="save" label="保存" page="admin.dict.List" source="admin.dict.Item,'*'" source2="admin.dict.Group,'code>group'"/>
+		<!-- <anchor type="save" label="保存" page="admin.dict.List" source="admin.dict.Item"/>-->
+	</action>
+
+</actions>

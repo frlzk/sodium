@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="sys_event" table="sys_event">
+		<id name="id" type="java.lang.String">
+           	<column name="ev_id"/>
+           	<generator class="assigned" />
+       	</id>
+		<property name="fromurl" column="ev_from" type="string" />
+		<property name="tourl" column="ev_to" type="string" />
+		<property name="kind" column="ev_kind" type="string" />
+		<property name="evt" column="ev_evt" type="string" />
+		<property name="ct" column="ev_ct" type="timestamp" />
+	</class>
+</hibernate-mapping>

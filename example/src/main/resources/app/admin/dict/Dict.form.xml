@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<form name="admin.dict.Group">
+		<caption><text>字典组</text></caption>
+		<field name="code" type="admin.dict.name" textfield="name"></field>
+		<field name="name" type="admin.dict.name" ></field>
+	</form>
+	<form name="admin.dict.Item">
+		<caption><text>字典项目</text></caption>
+		<field name="did" type="admin.dict.id" textfield="fullname" key="2"></field>
+		<field name="key" type="admin.dict.key" required="1"></field>
+		<field name="text" type="admin.dict.text" required="1"></field>
+		<field name="fullname" type="admin.dict.fullname">
+			<default value="text"></default>
+		</field>
+		<field name="stop" type="admin.dict.stop" required="1"><widget type="select"/></field>
+		<field name="order" type="admin.dict.order" required="1"></field>
+		<field name="group" type="admin.dict.name"></field>
+	</form>
+	
+	<form-layout type="table" form="admin.dict.Group" fields="code" />
+	
+	<form-layout type="table" form="admin.dict.Item" fields="key,text,stop,order" />
+</forms>

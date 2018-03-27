@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="${contextPath}/lib/dojo/1.8/dijit/themes/${theme}/claro.css" media="screen">
+<link rel="stylesheet" href="${contextPath}/lib/dojo/1.8/dojo/resources/dojo.css" media="screen">
+<link rel="stylesheet" href="${contextPath}/lib/dojo/1.8/gridx/resources/${theme}/Gridx.css" media="screen">
+<link rel="stylesheet" href="${contextPath}/lib/dojo/1.8/dojox/form/resources/CheckedMultiSelect.css" media="screen">

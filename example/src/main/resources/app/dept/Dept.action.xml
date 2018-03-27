@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions name="dept">
+	<action name="Dictionary" role="login" textmethod="getDisplayText" class="app.admin.dept.DeptDictionary" method="submitForm" source="sys.Id" result="dept.DictionaryItem"/>
+</actions>

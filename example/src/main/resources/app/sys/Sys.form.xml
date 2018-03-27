@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+	<type name="admin.dept.id" base="string">
+		<label><text>主键</text></label>
+		<facets>
+			<max-length>32</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.code" base="string">
+		<label><text>代码</text></label>
+		<facets>
+			<max-length>200</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.name" base="string">
+		<label><text>名称</text></label>
+		<facets>
+			<max-length>100</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.fullname" base="string">
+		<label><text>完整名称</text></label>
+		<facets>
+			<max-length>1000</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.kind" base="string">
+		<label><text>类型</text></label>
+		<facets>
+			<max-length>10</max-length>
+		</facets>
+		<reference action="sys.Dictionary" keyfield="key">
+			<argument name="type" value="deptType"/>
+		</reference>
+	</type>
+	<type name="admin.dept.note" base="string">
+		<label><text>备注</text></label>
+		<facets>
+			<max-length>100</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.py" base="string">
+		<label><text>拼音码</text></label>
+		<facets>
+			<max-length>100</max-length>
+		</facets>
+	</type>
+	<type name="admin.dept.level" base="int">
+		<label><text>层次</text></label>
+		<facets>
+			
+		</facets>
+	</type>
+	<type name="admin.dept.order" base="int">
+		<label><text>序顺</text></label>
+	</type>
+	<type name="admin.dict.id" base="string">
+		<label><text>主键</text></label>
+		<facets>
+			<max-length>32</max-length>
+		</facets>
+	</type>
+	<type name="admin.dict.name" base="string">
+		<label><text>字典名称</text></label>
+		<facets>
+			<max-length>200</max-length>
+		</facets>
+	</type>
+	<type name="admin.dict.key" base="string">
+		<label><text>代码</text></label>
+		<facets>
+			<max-length>200</max-length>
+		</facets>
+	</type>
+	<type name="admin.dict.text" base="string">
+		<label><text>名称</text></label>
+		<facets>
+			<max-length>100</max-length>
+		</facets>
+	</type>
+	<type name="admin.dict.fullname" base="string">
+		<label><text>完整名称</text></label>
+		<facets>
+			<max-length>1000</max-length>
+		</facets>
+	</type>
+	<type name="admin.dict.stop" base="string">
+		<label><text>是否停用</text></label>
+		<facets>
+			<max-length>1</max-length>
+		</facets>
+		<reference action="sys.Dictionary" keyfield="key">
+			<argument name="type" value="yesOrNo"/>
+		</reference>
+	</type>
+	<type name="admin.dict.order" base="int">
+		<label><text>序顺</text></label>
+		<facets>
+			
+		</facets>
+	</type>
+	<type name="admin.role.id" base="string">
+		<label>
+			<text>编码</text>
+		</label>
+	</type>
+	<type name="admin.role.name" base="string">
+		<label>
+			<text>名称</text>
+		</label>
+		<facets>
+			<min-length>3</min-length>
+			<max-length>30</max-length>
+		</facets>
+	</type>
+	<type name="admin.role.action" base="string">
+		<label>
+			<text>权限</text>
+		</label>
+	</type>
+	<type name="admin.role.isbottom" base="string">
+		<label>
+			<text>是否末级</text>
+		</label>
+	</type>
+	<type name="admin.user.role" base="base.uuid">
+		<label>
+			<text>role</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<reference action="admin.role.Dictionary" keyfield="id">
+			
+		</reference>
+	</type>
+	<type name="admin.user.dept" base="boolean">
+		<label>
+			<text>dept</text>
+		</label>
+		<facets>
+			<!-- length>32</length -->
+		</facets>
+		<reference action="dept.Dictionary" keyfield="id">
+			<property name="shorttext" value="name"/>
+		</reference>
+	</type>
+	<type name="user.id" base="base.uuid">
+		<label>
+			<text>userid</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+	</type>
+	<type name="user.code" base="string">
+		<label>
+			<text>登录名</text>
+		</label>
+		<facets>
+			<min-length>3</min-length>
+			<max-length>30</max-length>
+		</facets>
+	</type>
+	<type name="user.name" base="string">
+		<label>
+			<text>姓名</text>
+		</label>
+		<facets>
+			<min-length>3</min-length>
+			<max-length>30</max-length>
+		</facets>
+	</type>
+	<type name="user.pwd" base="string">
+		<label>
+			<text>密码</text>
+		</label>
+		<facets>
+			<min-length>3</min-length>
+			<max-length>32</max-length>
+		</facets>
+	</type>
+	<type name="user.gender" base="string">
+		<label><text>性别</text></label>
+		<facets>
+			<max-length>1</max-length>
+		</facets>
+		<reference action="sys.Dictionary" keyfield="key">
+			<argument name="type" value="gender"/>
+		</reference>
+	</type>
+	<type name="user.status" base="string">
+		<label><text>状态</text></label>
+		<facets>
+			<max-length>1</max-length>
+		</facets>
+		<reference action="sys.Dictionary" keyfield="key">
+			<argument name="type" value="userStatus"/>
+		</reference>
+		<default value="0">
+			<text>"正常"</text>
+		</default>
+	</type>
+	
+	<type name="base.uuid" base="string">
+		<label>
+			<text>Primary key</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+	</type>
+	<type name="language.code" base="string">
+		<label>
+			<text>语言</text>
+		</label>
+		<facets>
+			<min-length>2</min-length>
+			<max-length>10</max-length>
+		</facets>
+		<reference action="sys.Language" keyfield="language">
+			
+		</reference>
+	</type>
+	<type name="language.text" base="string">
+		<label>
+			<text>语言</text>
+		</label>
+	</type>
+	<type name="base.createuser" base="string">
+		<label>
+			<text>创建人</text>
+		</label>
+		<default value="user('id')">
+			<text>user('name')</text>
+		</default>
+		<widget type="select"></widget>
+		<reference action="user.Dictionary" keyfield="id"></reference>
+	</type>
+	<type name="base.createtime" base="datetime">
+		<label>
+			<text>创建时间</text>
+		</label>
+		<default value="cdatetime()">
+		</default>
+		<widget type="select"></widget>
+		<format>
+			<pattern>yyyy-MM-dd HH:mm:ss</pattern>
+		</format>
+	</type>
+	<type name="base.createdate" base="date">
+		<label>
+			<text>创建日期</text>
+		</label>
+		<default value="cdate()">
+		</default>
+		<widget type="select"></widget>
+		<format>
+			<pattern>yyyy-MM-dd</pattern>
+		</format>
+	</type>
+	<type name="base.createdept" base="base.uuid">
+		<label>
+			<text>创建机构</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<default value="user('deptId')">
+			<text>user('deptName')</text>
+		</default>
+		<widget type="tree"></widget>
+		<reference action="dept.Dictionary" keyfield="id">
+			<property name="shorttext" value="name"/>
+		</reference>
+	</type>
+	<type name="base.modifyuser" base="string">
+		<label>
+			<text>修改人</text>
+		</label>
+		<default value="user('id')" always="2">
+			<text>user('name')</text>
+		</default>
+		<widget type="select"></widget>
+		<reference action="user.Dictionary" keyfield="id"></reference>
+	</type>
+	<type name="base.modifytime" base="datetime">
+		<label>
+			<text>修改时间</text>
+		</label>
+		<default value="cdatetime()" always="2">
+		</default>
+		<widget type="select"></widget>
+		<format>
+			<pattern>yyyy-MM-dd HH:mm:ss</pattern>
+		</format>
+	</type>
+	<type name="base.modifydate" base="date">
+		<label>
+			<text>修改日期</text>
+		</label>
+		<default value="cdate()" always="2">
+		</default>
+		<widget type="select"></widget>
+		<format>
+			<pattern>yyyy-MM-dd</pattern>
+		</format>
+	</type>
+	<type name="base.modifydept" base="base.uuid">
+		<label>
+			<text>修改机构</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<default value="user('deptId')" always="2">
+			<text>user('deptName')</text>
+		</default>
+		<widget type="tree"></widget>
+		<reference action="dept.Dictionary" keyfield="id">
+			<property name="shorttext" value="name"/>
+		</reference>
+	</type>
+	<type name="base.dept" base="base.uuid">
+		<label>
+			<text>管理机构</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<widget type="tree"></widget>
+		<reference action="dept.Dictionary" keyfield="id">
+			<property name="shorttext" value="name"/>
+			<property name="selectablefield" value="kind"/>
+			<property name="selectablevalue" value="b"/>
+		</reference>
+	</type>
+	<type name="base.grid" base="base.uuid">
+		<label>
+			<text>网格地址</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<widget type="tree"></widget>
+		<reference action="grid.Dictionary" keyfield="id">
+			<property name="shorttext" value="name"/>
+			<property name="selectablefield" value="isbottom"/>
+			<property name="selectablevalue" value="1"/>
+		</reference>
+	</type>
+	<type name="base.manadoctorname" base="base.uuid">
+		<label>
+			<text>责任医生</text>
+		</label>
+		<facets>
+			<length>32</length>
+		</facets>
+		<reference action="user.DeptDoctors" keyfield="id">
+			<argument name="id" value=""/>
+		</reference>
+	</type>
+	
+	<form name="sys.Language">
+		<field name="language" type="language.code" textfield="text">
+			
+		</field>
+		<field name="text" type="language.text" >
+			
+		</field>
+	</form>
+	<form name="query">
+		<field name="sys" type="string" ></field>
+		<field name="user" type="string" ></field>
+	</form>  
+	<form name="sys.DictionaryReq">
+		<field name="type" type="string" ></field>
+		<field name="spell" type="string" ></field>
+	</form>
+	<form name="sys.DictionaryRes">
+		<field name="key" type="string" textfield="fullText"></field>
+		<field name="text" type="string" ></field>
+		<field name="fullText" type="string" ></field>
+		<field name="spell" type="string" ></field>
+	</form>
+	<form name="sys.Id">
+		<field name="id" type="string" ></field>
+	</form> 
+	<form name="sys.Ids">
+		<field name="id1" type="string" ></field>
+		<field name="id2" type="string" ></field>
+		<field name="id3" type="string" ></field>
+		<field name="id4" type="string" ></field>
+		<field name="id5" type="string" ></field>
+	</form> 
+	<form name="sys.Raw">
+		<field name="data" type="string" ></field>
+	</form>
+	
+</forms>

@@ -1,0 +1,12 @@
+header=Content-Type=text/javascript; charset=UTF-8
+file=../../..//lib/extjs/3/js/ext-base.js
+file=../../..//lib/extjs/3/js/ext-all-debug.js
+file=../../..//lib/extjs/3/js/TableFormLayout.js
+file=../../..//lib/extjs/3/js/RowEditor.js
+file=../../..//lib/extjs/3/js/ColumnHeaderGroup.js
+file=../../..//lib/extjs/3/js/require_all.js
+inline=window.PAGE_RENDERER="extjs3";
+class=sodium.page.Extjs3:${locale}
+file=../../..//lib/extjs/3/js/griddept-tree.js
+file=../../..//lib/extjs/3/js/queryadv.js
+include=custom-viewport.br11,default-viewport.br11

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<group value="certificate" text="证件" editable="true">
+	<item value="01" text="居民身份证"/>
+	<item value="02" text="港澳居民身份证"/>
+	<item value="03" text="居民户口簿"/>
+	<item value="04" text="护照"/>
+	<item value="05" text="军官证"/>
+	<item value="06" text="文职干部证"/>
+	<item value="07" text="士兵证"/>
+	<item value="08" text="驾驶执照"/>
+	<item value="09" text="残疾证"/>
+	<item value="10" text="医疗保险证"/>
+	<item value="11" text="出生证明"/>
+	<item value="12" text="家庭标识"/>
+	<item value="13" text="住院病案"/>
+	<item value="14" text="住院床位"/>
+	<item value="15" text="门诊病历"/>
+	<item value="16" text="死亡证明"/>
+	<item value="99" text="其他标示"/>
+</group>
+<group value="education" text="文化程度" editable="true">
+	<item value="10" text="研究生及以上学历"/>
+	<item value="30" text="大专以上学历"/>
+	<item value="60" text="高中/中专"/>
+	<item value="70" text="初中"/>
+	<item value="80" text="小学"/>
+	<item value="90" text="文盲/没有上过小学"/>
+</group>
+<group value="userStatus" text="用户状态">
+	<item value="0" text="正常"/>
+	<item value="1" text="禁用"/>
+	<item value="2" text="停用"/>
+</group>
+<group value="yesOrNo" text="yesno">
+	<item value="1" text="是"/>
+	<item value="0" text="否"/>
+</group>
+<group value="deptType" text="yesno">
+	<item value="1" text="大科室"/>
+	<item value="2" text="小科室"/>
+</group>
+<group value="gender" text="yesno">
+	<item value="0" text="未知的性别"/>
+	<item value="1" text="男性"/>
+	<item value="2" text="女性"/>
+	<item value="9" text="未说明的性别"/>
+</group>
+</data>

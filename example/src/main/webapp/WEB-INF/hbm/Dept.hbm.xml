@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="adminDept" table="ehr_manageunit">
+		<id name="id" type="java.lang.String">
+           	<column name="mu_id"/>
+           	<generator class="assigned" />
+       	</id>
+		<property name="name" column="mu_name" type="string" />
+		<property name="fullname" column="mu_fullname" type="string" />
+		<property name="kind" column="mu_kind" type="string" />
+		<property name="note" column="mu_note" type="string" />
+		<property name="py" column="mu_py" type="string" />
+		<property name="level" column="mu_level" type="int" />
+		<property name="parent" column="mu_parent" type="string" />
+		<property name="dirty" column="mu_dirty" type="string" />
+		<property name="isdel" column="mu_isdel" type="string" />
+		<property name="orderno" column="mu_orderno" type="int" />
+	</class>
+	<class entity-name="adminDeptRel" table="ehr_manageunit_rel">
+       	<composite-id >
+			<key-property name="pid" column="mr_parent" type="string"/>
+			<key-property name="cid" column="mr_child" type="string"/>
+		</composite-id>
+		<property name="level" column="mr_level" type="int" />
+	</class>
+</hibernate-mapping>

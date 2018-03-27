@@ -1,0 +1,6 @@
+header=Content-Type=text/javascript; charset=UTF-8
+file=../../../../lib/dojo/1.10/dojo/dojo.js
+file=../../../../lib/echarts/echarts.min.js
+inline=window.PAGE_RENDERER="dojo1_10";
+class=sodium.page.DoJo1_10:${locale}
+file=window.js
